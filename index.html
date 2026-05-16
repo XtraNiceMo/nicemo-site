@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>NiceMo LLC | Clinical AI Solutions</title>
+<style>
+:root{--primary:#1a3a5c;--accent:#2e86c1;--gold:#d4a017;--light:#f4f6f9;--dark:#0d1f33;--white:#ffffff;--success:#27ae60;--warning:#e67e22;--text:#2c3e50}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Segoe UI,system-ui,sans-serif;background:var(--light);color:var(--text)}
+nav{background:var(--dark);display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:64px;position:sticky;top:0;z-index:1000;box-shadow:0 2px 12px rgba(0,0,0,.4)}
+.nav-brand{display:flex;align-items:center;gap:.75rem}
+.nav-logo{width:40px;height:40px;background:var(--accent);border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:900;color:#fff;font-size:1.1rem}
+.nav-name{color:#fff;font-weight:700;font-size:1.1rem}
+.nav-links{display:flex;gap:1.5rem;list-style:none}
+.nav-links a{color:#c8d6e5;text-decoration:none;font-size:.9rem;transition:color .2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{background:var(--accent);color:#fff;border:none;padding:.5rem 1.25rem;border-radius:6px;cursor:pointer;font-weight:600;font-size:.9rem}
+.hero{background:linear-gradient(135deg,var(--dark) 0%,var(--primary) 60%,var(--accent) 100%);color:#fff;padding:5rem 2rem 4rem;text-align:center}
+.hero h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:900}
+.hero h1 span{color:var(--gold)}
+.hero p{font-size:1.15rem;max-width:640px;margin:1.25rem auto;opacity:.9;line-height:1.7}
+.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2rem}
+.btn-primary{background:var(--gold);color:var(--dark);padding:.8rem 2rem;border:none;border-radius:8px;font-weight:700;font-size:1rem;cursor:pointer;text-decoration:none;display:inline-block}
+.btn-outline{background:transparent;color:#fff;padding:.8rem 2rem;border:2px solid #fff;border-radius:8px;font-weight:600;font-size:1rem;cursor:pointer;text-decoration:none;display:inline-block}
+.tenet{background:var(--primary);color:#fff;text-align:center;padding:1.25rem 2rem;font-size:.95rem}
+.tenet strong{color:var(--gold)}
+.section-title{font-size:clamp(1.5rem,3vw,2.25rem);font-weight:800;color:var(--primary);text-align:center;margin-bottom:.5rem}
+.section-subtitle{text-align:center;color:#5d7083;margin-bottom:2.5rem;font-size:1rem}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+.service-card{background:#fff;border-radius:12px;padding:1.75rem;box-shadow:0 2px 16px rgba(0,0,0,.08);transition:all .2s;border-top:4px solid var(--accent)}
+.service-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,.12)}
+.service-icon{font-size:2rem;margin-bottom:.75rem}
+.service-card h3{color:var(--primary);font-size:1.1rem;margin-bottom:.5rem}
+.service-card p{color:#5d7083;font-size:.9rem;line-height:1.6}
+.card-btn{margin-top:1rem;background:var(--accent);color:#fff;border:none;padding:.5rem 1.25rem;border-radius:6px;cursor:pointer;font-size:.85rem;font-weight:600;text-decoration:none;display:inline-block}
+.tab-btn{background:#fff;border:2px solid var(--accent);color:var(--accent);padding:.6rem 1.5rem;border-radius:6px;cursor:pointer;font-weight:600;font-size:.9rem;margin:.25rem}
+.tab-btn.active{background:var(--accent);color:#fff}
+.dashboard-panel{display:none}
+.dashboard-panel.active{display:block}
+.dash-card{background:#fff;border-radius:12px;padding:2rem;box-shadow:0 2px 20px rgba(0,0,0,.09)}
+.dash-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;flex-wrap:wrap;gap:.75rem}
+.dash-title{font-size:1.25rem;font-weight:800;color:var(--primary)}
+.dash-badge{background:var(--success);color:#fff;padding:.25rem .75rem;border-radius:20px;font-size:.8rem;font-weight:600}
+.dash-badge.warn{background:var(--warning)}
+.kpi-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem;margin-bottom:1.5rem}
+.kpi{background:var(--light);border-radius:8px;padding:1rem;text-align:center;border-left:4px solid var(--accent)}
+.kpi .kpi-val{font-size:1.75rem;font-weight:900;color:var(--primary)}
+.kpi .kpi-lbl{font-size:.75rem;color:#5d7083;margin-top:.25rem;text-transform:uppercase;letter-spacing:.5px}
+.dash-table{width:100%;border-collapse:collapse;font-size:.875rem}
+.dash-table th{background:var(--primary);color:#fff;padding:.6rem 1rem;text-align:left;font-size:.8rem;text-transform:uppercase}
+.dash-table td{padding:.6rem 1rem;border-bottom:1px solid #e8ecf0}
+.dash-table tr:hover td{background:#f0f4f8}
+.status-pill{padding:.2rem .65rem;border-radius:12px;font-size:.75rem;font-weight:700}
+.status-pill.green{background:#d4efdf;color:#1e8449}
+.status-pill.amber{background:#fdebd0;color:#ca6f1e}
+.status-pill.red{background:#fadbd8;color:#c0392b}
+.bar-row{display:flex;align-items:center;gap:.75rem;margin-bottom:.5rem;font-size:.85rem}
+.bar-label{width:140px;text-align:right;color:#5d7083;flex-shrink:0}
+.bar-track{flex:1;background:#e8ecf0;border-radius:4px;height:18px;overflow:hidden}
+.bar-fill{height:100%;border-radius:4px;background:var(--accent);display:flex;align-items:center;padding-left:.4rem;font-size:.7rem;font-weight:700;color:#fff}
+.bar-fill.gold{background:var(--gold)}
+.bar-fill.green{background:var(--success)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.about-text h2{color:var(--primary);font-size:1.75rem;margin-bottom:1rem}
+.about-text p{color:#5d7083;line-height:1.8;margin-bottom:1rem}
+.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.stat-box{background:var(--light);border-radius:8px;padding:1.25rem;text-align:center;border-bottom:3px solid var(--gold)}
+.stat-box .stat-num{font-size:2rem;font-weight:900;color:var(--primary)}
+.stat-box .stat-desc{font-size:.8rem;color:#5d7083;margin-top:.25rem}
+.contact-form input,.contact-form textarea{width:100%;padding:.75rem 1rem;margin-bottom:1rem;border:1px solid #2c4a6e;border-radius:6px;background:#12293d;color:#fff;font-family:inherit;font-size:.9rem}
+.contact-form textarea{height:100px;resize:vertical}
+.contact-form button{width:100%;background:var(--gold);color:var(--dark);border:none;padding:.85rem;border-radius:6px;font-weight:700;font-size:1rem;cursor:pointer}
+@media(max-width:680px){.about-grid{grid-template-columns:1fr}.nav-links{display:none}}
+</style></head><body><nav>
+<div class="nav-brand"><div class="nav-logo">NM</div><span class="nav-name">NiceMo LLC</span></div>
+<ul class="nav-links">
+<li><a href="#services">Services</a></li>
+<li><a href="#dashboards">Dashboards</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+<button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Request Demo</button>
+</nav>
+<div class="hero">
+<h1>Clinical AI for <span>Long-Term Care</span></h1>
+<p>NiceMo LLC delivers certifiable, source-backed AI solutions that help Directors of Nursing and care teams make faster, safer, compliant decisions every shift.</p>
+<div class="hero-btns">
+<a class="btn-primary" href="#dashboards">View Live Dashboards</a>
+<a class="btn-outline" href="#services">Our Services</a>
+</div></div>
+<div class="tenet"><strong>Core Tenet:</strong> NiceMo clinical AI provides certifiable information only. Every output cites a verifiable source. No fabricated claims. No invented certifications.</div>
+<section id="services" style="padding:4rem 2rem;max-width:1100px;margin:0 auto">
+<h2 class="section-title">Our Solutions</h2>
+<p class="section-subtitle">Purpose-built tools for skilled nursing, assisted living, and long-term care operations.</p>
+<div class="services-grid">
+<div class="service-card"><div class="service-icon">&#x1F9E0;</div><h3>MS JINX Clinical AI</h3><p>Real-time clinical decision support for Directors of Nursing. Flags care concerns, references CMS regulations, and surfaces compliant interventions with source citations.</p><a class="card-btn" href="#dashboards" onclick="showDash('jinx')">View Dashboard</a></div>
+<div class="service-card"><div class="service-icon">&#x1F4CB;</div><h3>DON Daily Report</h3><p>Automated morning briefing for Directors of Nursing. Aggregates census, incident flags, fall risk scores, and compliance items into a single actionable digest.</p><a class="card-btn" href="#dashboards" onclick="showDash('don')">View Dashboard</a></div>
+<div class="service-card"><div class="service-icon">&#x1F4CA;</div><h3>NiceMo Operations Hub</h3><p>Facility-wide performance monitoring. Track star ratings, staffing levels, QM scores, and survey readiness metrics across your entire portfolio.</p><a class="card-btn" href="#dashboards" onclick="showDash('ops')">View Dashboard</a></div>
+<div class="service-card"><div class="service-icon">&#x1F512;</div><h3>Compliance Intelligence</h3><p>Proactive regulatory monitoring. Automatically maps resident records to F-tag requirements and surfaces potential deficiencies before a survey visit.</p><a class="card-btn" href="#contact">Request Demo</a></div>
+<div class="service-card"><div class="service-icon">&#x1F4F1;</div><h3>Staff Mobility Suite</h3><p>Mobile-first tools for floor nurses and CNAs. Quick documentation, shift handoff summaries, and real-time alerts optimized for bedside use.</p><a class="card-btn" href="#contact">Request Demo</a></div>
+<div class="service-card"><div class="service-icon">&#x1F393;</div><h3>AI Onboarding and Training</h3><p>Hands-on implementation and workforce training programs. We ensure your team can confidently operate AI tools in a clinical environment from day one.</p><a class="card-btn" href="#contact">Get Started</a></div>
+</div></section><div style="background:#fff3cd;border-left:4px solid #d4a017;padding:1rem 2rem;text-align:center;font-size:.9rem;color:#7c5e10;"><strong>Sample data, not live facility data.</strong> The dashboards below are illustrative mockups showing how NiceMo tools surface insights. Real NiceMo deployments use only verified facility records, with every metric source-cited.</div><div id="dashboards" style="padding:4rem 2rem;background:#f4f6f9">
+<div style="max-width:1100px;margin:0 auto">
+<h2 class="section-title">Live Dashboard Previews</h2>
+<p class="section-subtitle">Interactive mockups showing how NiceMo tools surface insights for clinical teams.</p>
+<div style="text-align:center;margin-bottom:2rem">
+<button class="tab-btn active" onclick="showDash('jinx')">&#x1F9E0; MS JINX Clinical AI</button>
+<button class="tab-btn" onclick="showDash('don')">&#x1F4CB; DON Daily Report</button>
+<button class="tab-btn" onclick="showDash('ops')">&#x1F4CA; Operations Hub</button>
+</div>
+<div id="dash-jinx" class="dashboard-panel active">
+<div class="dash-card">
+<div class="dash-header"><span class="dash-title">&#x1F9E0; MS JINX Clinical Decision Support</span><span class="dash-badge">Live Session</span></div>
+<div class="kpi-row">
+<div class="kpi"><div class="kpi-val">47</div><div class="kpi-lbl">Residents Monitored</div></div>
+<div class="kpi"><div class="kpi-val">3</div><div class="kpi-lbl">Alerts Today</div></div>
+<div class="kpi"><div class="kpi-val">98.2%</div><div class="kpi-lbl">Source-Cited Outputs</div></div>
+<div class="kpi"><div class="kpi-val">0</div><div class="kpi-lbl">Unverified Claims</div></div>
+</div>
+<table class="dash-table">
+<thead><tr><th>Resident</th><th>Concern Flagged</th><th>CMS Reference</th><th>Priority</th><th>Action</th></tr></thead>
+<tbody>
+<tr><td>Rm 102 J.D.</td><td>Unwitnessed fall, 2nd this week</td><td>F689 Fall Prevention</td><td><span class="status-pill red">High</span></td><td><button class="card-btn" onclick="alert('Care plan review opened for Rm 102')">Review</button></td></tr>
+<tr><td>Rm 118 M.T.</td><td>Weight loss over 5% in 30 days</td><td>F692 Nutrition</td><td><span class="status-pill amber">Medium</span></td><td><button class="card-btn" onclick="alert('Nutrition consult logged for Rm 118')">Log Consult</button></td></tr>
+<tr><td>Rm 207 A.R.</td><td>Missed anticoagulant dose x2</td><td>F755 Pharmacy</td><td><span class="status-pill red">High</span></td><td><button class="card-btn" onclick="alert('Pharmacy notified for Rm 207')">Notify Pharm</button></td></tr>
+<tr><td>Rm 314 L.W.</td><td>Increased agitation, sundowning</td><td>F741 Mental Health</td><td><span class="status-pill amber">Medium</span></td><td><button class="card-btn" onclick="alert('Behavioral note added for Rm 314')">Add Note</button></td></tr>
+<tr><td>Rm 401 P.K.</td><td>All parameters within normal range</td><td>None</td><td><span class="status-pill green">Clear</span></td><td></td></tr>
+</tbody></table>
+<div style="margin-top:1.5rem"><h4 style="color:#1a3a5c;margin-bottom:.75rem">F-Tag Risk Distribution This Week</h4>
+<div class="bar-row"><span class="bar-label">F689 Falls</span><div class="bar-track"><div class="bar-fill" style="width:72%">72%</div></div></div>
+<div class="bar-row"><span class="bar-label">F692 Nutrition</span><div class="bar-track"><div class="bar-fill gold" style="width:48%">48%</div></div></div>
+<div class="bar-row"><span class="bar-label">F755 Pharmacy</span><div class="bar-track"><div class="bar-fill" style="width:31%">31%</div></div></div>
+<div class="bar-row"><span class="bar-label">F741 Behavior</span><div class="bar-track"><div class="bar-fill green" style="width:55%">55%</div></div></div>
+</div></div></div>
+<div id="dash-don" class="dashboard-panel">
+<div class="dash-card">
+<div class="dash-header"><span class="dash-title">&#x1F4CB; DON Daily Report Morning Briefing</span><span class="dash-badge warn">2 Items Need Attention</span></div>
+<div class="kpi-row">
+<div class="kpi"><div class="kpi-val">47</div><div class="kpi-lbl">Current Census</div></div>
+<div class="kpi"><div class="kpi-val">94%</div><div class="kpi-lbl">Bed Occupancy</div></div>
+<div class="kpi"><div class="kpi-val">2</div><div class="kpi-lbl">New Incidents 24h</div></div>
+<div class="kpi"><div class="kpi-val">3</div><div class="kpi-lbl">Compliance Items</div></div>
+</div>
+<table class="dash-table">
+<thead><tr><th>Category</th><th>Detail</th><th>Unit</th><th>Status</th><th>Action</th></tr></thead>
+<tbody>
+<tr><td>Incident</td><td>Unwitnessed fall Rm 102 at 3:22 AM</td><td>Unit A</td><td><span class="status-pill red">Open</span></td><td><button class="card-btn" onclick="alert('Incident report opened for Rm 102')">File Report</button></td></tr>
+<tr><td>Incident</td><td>Skin tear during AM care Rm 215</td><td>Unit B</td><td><span class="status-pill amber">Pending</span></td><td><button class="card-btn" onclick="alert('Wound care protocol for Rm 215')">Wound Care</button></td></tr>
+<tr><td>Weight</td><td>3 residents over 5% loss in 30 days</td><td>All</td><td><span class="status-pill amber">Review</span></td><td><button class="card-btn" onclick="alert('Weight review list loaded')">Review</button></td></tr>
+<tr><td>Medication</td><td>Pharmacy delivery confirmed 6 AM</td><td>All</td><td><span class="status-pill green">Done</span></td><td></td></tr>
+<tr><td>Staffing</td><td>All shifts covered no open posts</td><td>All</td><td><span class="status-pill green">OK</span></td><td></td></tr>
+<tr><td>MDS</td><td>2 assessments due this week</td><td>Unit A</td><td><span class="status-pill amber">Due</span></td><td><button class="card-btn" onclick="alert('MDS tracker opened')">Track</button></td></tr>
+</tbody></table>
+<div style="margin-top:1.5rem"><h4 style="color:#1a3a5c;margin-bottom:.75rem">7-Day Incident Trend</h4>
+<div class="bar-row"><span class="bar-label">Monday</span><div class="bar-track"><div class="bar-fill green" style="width:20%">1</div></div></div>
+<div class="bar-row"><span class="bar-label">Tuesday</span><div class="bar-track"><div class="bar-fill green" style="width:5%"></div></div></div>
+<div class="bar-row"><span class="bar-label">Wednesday</span><div class="bar-track"><div class="bar-fill gold" style="width:40%">2</div></div></div>
+<div class="bar-row"><span class="bar-label">Thursday</span><div class="bar-track"><div class="bar-fill green" style="width:20%">1</div></div></div>
+<div class="bar-row"><span class="bar-label">Friday</span><div class="bar-track"><div class="bar-fill" style="width:40%">2</div></div></div>
+<div class="bar-row"><span class="bar-label">Weekend</span><div class="bar-track"><div class="bar-fill green" style="width:20%">1</div></div></div>
+</div></div></div>
+<div id="dash-ops" class="dashboard-panel">
+<div class="dash-card">
+<div class="dash-header"><span class="dash-title">&#x1F4CA; NiceMo Operations Hub Facility Overview</span><span class="dash-badge">Q2 2025</span></div>
+<div class="kpi-row">
+<div class="kpi"><div class="kpi-val">4 Star</div><div class="kpi-lbl">Overall Star Rating</div></div>
+<div class="kpi"><div class="kpi-val">94%</div><div class="kpi-lbl">Occupancy Rate</div></div>
+<div class="kpi"><div class="kpi-val">92%</div><div class="kpi-lbl">Staffing Compliance</div></div>
+<div class="kpi"><div class="kpi-val">87%</div><div class="kpi-lbl">QM Score</div></div>
+</div>
+<table class="dash-table">
+<thead><tr><th>Metric</th><th>Current</th><th>Target</th><th>Trend</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td>Overall Star Rating</td><td>4.0 of 5.0</td><td>4.5</td><td>Up 0.5 QoQ</td><td><span class="status-pill green">On Track</span></td></tr>
+<tr><td>RN Hours Per Resident Day</td><td>0.62</td><td>0.65</td><td>Stable</td><td><span class="status-pill amber">Near Target</span></td></tr>
+<tr><td>Total Nurse Hours Per Res Day</td><td>3.82</td><td>3.8</td><td>Exceeding</td><td><span class="status-pill green">Met</span></td></tr>
+<tr><td>Antipsychotic Use Long-Stay</td><td>14.2%</td><td>Under 15%</td><td>Improving</td><td><span class="status-pill green">Met</span></td></tr>
+<tr><td>Rehospitalization Rate</td><td>18.4%</td><td>Under 20%</td><td>Improving</td><td><span class="status-pill green">Met</span></td></tr>
+<tr><td>Survey Readiness Score</td><td>78%</td><td>85%</td><td>Up 3% MoM</td><td><span class="status-pill amber">In Progress</span></td></tr>
+</tbody></table>
+<div style="margin-top:1.5rem"><h4 style="color:#1a3a5c;margin-bottom:.75rem">Quality Measure Performance</h4>
+<div class="bar-row"><span class="bar-label">Pressure Injuries</span><div class="bar-track"><div class="bar-fill green" style="width:88%">88%</div></div></div>
+<div class="bar-row"><span class="bar-label">Fall Rate</span><div class="bar-track"><div class="bar-fill gold" style="width:74%">74%</div></div></div>
+<div class="bar-row"><span class="bar-label">Pain Management</span><div class="bar-track"><div class="bar-fill green" style="width:91%">91%</div></div></div>
+<div class="bar-row"><span class="bar-label">Infections</span><div class="bar-track"><div class="bar-fill" style="width:82%">82%</div></div></div>
+</div></div></div>
+</div></div><div id="about" style="background:#fff;padding:4rem 2rem">
+<div style="max-width:1100px;margin:0 auto">
+<div class="about-grid">
+<div class="about-text">
+<h2>About NiceMo LLC</h2>
+<p>NiceMo LLC is a Las Vegas-based clinical AI company founded to close the gap between emerging AI technology and the complex realities of long-term care.</p>
+<p>Every tool we build is grounded in a single principle: <strong>certifiable, source-cited information only.</strong> We do not fabricate claims, invent certifications, or add aspirational features that do not exist.</p>
+<p>Our team brings experience in clinical operations, CMS regulatory compliance, and AI development, working directly with Directors of Nursing to build tools that fit real workflows.</p>
+<a class="btn-primary" href="#contact" style="display:inline-block;margin-top:.5rem">Work With Us</a>
+</div>
+<div class="about-stats">
+<div class="stat-box"><div class="stat-num">Cite</div><div class="stat-desc">Or refuse — no synthesized claims</div></div>
+<div class="stat-box"><div class="stat-num">Audit</div><div class="stat-desc">Source trail on every output</div></div>
+<div class="stat-box"><div class="stat-num">LTC</div><div class="stat-desc">Specialized focus</div></div>
+<div class="stat-box"><div class="stat-num">NV</div><div class="stat-desc">Las Vegas, NV based</div></div>
+</div>
+</div>
+</div>
+</div>
+<div id="contact" style="background:#0d1f33;color:#fff;padding:4rem 2rem;text-align:center">
+<div style="max-width:1100px;margin:0 auto">
+<h2 style="font-size:2rem;color:#d4a017;margin-bottom:.75rem">Ready to See NiceMo in Action?</h2>
+<p style="max-width:540px;margin:0 auto 2rem;opacity:.85;line-height:1.7">Contact Dr. Mo to schedule a demo or discuss how NiceMo clinical AI can support your facility.</p>
+<div style="display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;margin-bottom:2rem">
+<div>&#x1F4E7; <a href="mailto:MOGIII@NICEMOLLC.onmicrosoft.com" style="color:#7fb3d3">MOGIII@NICEMOLLC.onmicrosoft.com</a></div>
+<div>&#x1F4CD; Las Vegas, NV</div>
+<div>&#x1F310; <a href="https://drmostrategists.biz" style="color:#7fb3d3">drmostrategists.biz</a></div>
+</div>
+<form class="contact-form" style="max-width:520px;margin:0 auto;text-align:left" onsubmit="handleContact(event)">
+<input type="text" placeholder="Your Name" required id="cf-name">
+<input type="email" placeholder="Your Email" required id="cf-email">
+<input type="text" placeholder="Facility Name" id="cf-facility">
+<textarea placeholder="How can NiceMo help your facility?" id="cf-msg"></textarea>
+<button type="submit">Send Message to Dr. Mo</button>
+</form>
+</div>
+</div>
+<footer style="background:#060f1a;color:#7fb3d3;text-align:center;padding:1.5rem;font-size:.85rem">
+&copy; 2025 NiceMo LLC &mdash; Las Vegas, NV &nbsp;|&nbsp;
+<a href="mailto:MOGIII@NICEMOLLC.onmicrosoft.com" style="color:#d4a017">MOGIII@NICEMOLLC.onmicrosoft.com</a> &nbsp;|&nbsp;
+<a href="https://drmostrategists.biz" style="color:#d4a017">drmostrategists.biz</a>
+</footer>
+<script>
+function showDash(id){
+document.querySelectorAll(".tab-btn").forEach(function(btn,i){
+var ids=["jinx","don","ops"];
+btn.classList.toggle("active",ids[i]===id);
+});
+["jinx","don","ops"].forEach(function(name){
+var panel=document.getElementById("dash-"+name);
+if(panel)panel.classList.toggle("active",name===id);
+});
+document.getElementById("dashboards").scrollIntoView({behavior:"smooth"});
+}
+function handleContact(e){
+e.preventDefault();
+var name=document.getElementById("cf-name").value;
+alert("Thank you, "+name+"! Your message has been received. Dr. Mo will be in touch at MOGIII@NICEMOLLC.onmicrosoft.com");
+e.target.reset();
+}
+</script>
+</body></html>
