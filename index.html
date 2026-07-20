@@ -94,7 +94,7 @@ nav{background:var(--dark);display:flex;align-items:center;justify-content:space
 <h2 class="section-title">Our Solutions</h2>
 <p class="section-subtitle">Purpose-built tools for skilled nursing, assisted living, and long-term care operations.</p>
 <div class="services-grid">
-<div class="service-card"><div class="service-icon">&#x1F9E0;</div><h3>MS JINX Clinical AI</h3><p>Real-time clinical decision support for Directors of Nursing. Flags care concerns, references CMS regulations, and surfaces compliant interventions with source citations.</p><a class="card-btn" href="#dashboards" onclick="showDash('jinx')">View Dashboard</a></div>
+<div class="service-card"><div class="service-icon">&#x1F9E0;</div><h3>Clinical Intelligence Platform <span style="font-size:.62em;background:#5B21B6;color:#fff;padding:2px 8px;border-radius:10px;vertical-align:middle;letter-spacing:1px">IN DEVELOPMENT</span></h3><p>A research and development project exploring clinical decision support for Directors of Nursing: surfacing care concerns, referencing CMS regulations, and drafting compliant interventions with source citations. Built and tested on synthetic data — not deployed in any care setting.</p><a class="card-btn" href="#dashboards" onclick="showDash('jinx')">View Dashboard</a></div>
 <div class="service-card"><div class="service-icon">&#x1F4CB;</div><h3>DON Daily Report</h3><p>Automated morning briefing for Directors of Nursing. Aggregates census, incident flags, fall risk scores, and compliance items into a single actionable digest.</p><a class="card-btn" href="#dashboards" onclick="showDash('don')">View Dashboard</a></div>
 <div class="service-card"><div class="service-icon">&#x1F4CA;</div><h3>NiceMo Operations Hub</h3><p>Facility-wide performance monitoring. Track star ratings, staffing levels, QM scores, and survey readiness metrics across your entire portfolio.</p><a class="card-btn" href="#dashboards" onclick="showDash('ops')">View Dashboard</a></div>
 <div class="service-card"><div class="service-icon">&#x1F512;</div><h3>Compliance Intelligence</h3><p>Proactive regulatory monitoring. Automatically maps resident records to F-tag requirements and surfaces potential deficiencies before a survey visit.</p><a class="card-btn" href="#contact">Request Demo</a></div>
@@ -105,13 +105,13 @@ nav{background:var(--dark);display:flex;align-items:center;justify-content:space
 <h2 class="section-title">Live Dashboard Previews</h2>
 <p class="section-subtitle">Interactive mockups showing how NiceMo tools surface insights for clinical teams.</p>
 <div style="text-align:center;margin-bottom:2rem">
-<button class="tab-btn active" onclick="showDash('jinx')">&#x1F9E0; MS JINX Clinical AI</button>
+<button class="tab-btn active" onclick="showDash('jinx')">&#x1F9E0; Clinical Intelligence Platform</button>
 <button class="tab-btn" onclick="showDash('don')">&#x1F4CB; DON Daily Report</button>
 <button class="tab-btn" onclick="showDash('ops')">&#x1F4CA; Operations Hub</button>
 </div>
 <div id="dash-jinx" class="dashboard-panel active">
 <div class="dash-card">
-<div class="dash-header"><span class="dash-title">&#x1F9E0; MS JINX Clinical Decision Support</span><span class="dash-badge">Live Session</span></div>
+<div class="dash-header"><span class="dash-title">&#x1F9E0; Clinical Intelligence Platform</span><span class="dash-badge" style="background:#5B21B6">Development Preview</span></div>
 <div class="kpi-row">
 <div class="kpi"><div class="kpi-val">47</div><div class="kpi-lbl">Residents Monitored</div></div>
 <div class="kpi"><div class="kpi-val">3</div><div class="kpi-lbl">Alerts Today</div></div>
@@ -209,9 +209,9 @@ nav{background:var(--dark);display:flex;align-items:center;justify-content:space
 <h2 style="font-size:2rem;color:#d4a017;margin-bottom:.75rem">Ready to See NiceMo in Action?</h2>
 <p style="max-width:540px;margin:0 auto 2rem;opacity:.85;line-height:1.7">Contact Dr. Mo to schedule a demo or discuss how NiceMo clinical AI can support your facility.</p>
 <div style="display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;margin-bottom:2rem">
-<div>&#x1F4E7; <a href="mailto:MOGIII@NICEMOLLC.onmicrosoft.com" style="color:#7fb3d3">MOGIII@NICEMOLLC.onmicrosoft.com</a></div>
+<div>&#x1F4E7; <a href="mailto:mo@nicemollc.com" style="color:#7fb3d3">mo@nicemollc.com</a></div>
 <div>&#x1F4CD; Las Vegas, NV</div>
-<div>&#x1F310; <a href="https://drmostrategists.biz" style="color:#7fb3d3">drmostrategists.biz</a></div>
+<div>&#x1F310; <a href="https://nicemollc.com" style="color:#7fb3d3">NiceMoLLC.com</a></div>
 </div>
 <form class="contact-form" style="max-width:520px;margin:0 auto;text-align:left" onsubmit="handleContact(event)">
 <input type="text" placeholder="Your Name" required id="cf-name">
@@ -224,8 +224,8 @@ nav{background:var(--dark);display:flex;align-items:center;justify-content:space
 </div>
 <footer style="background:#060f1a;color:#7fb3d3;text-align:center;padding:1.5rem;font-size:.85rem">
 &copy; 2025 NiceMo LLC &mdash; Las Vegas, NV &nbsp;|&nbsp;
-<a href="mailto:MOGIII@NICEMOLLC.onmicrosoft.com" style="color:#d4a017">MOGIII@NICEMOLLC.onmicrosoft.com</a> &nbsp;|&nbsp;
-<a href="https://drmostrategists.biz" style="color:#d4a017">drmostrategists.biz</a>
+<a href="mailto:mo@nicemollc.com" style="color:#d4a017">mo@nicemollc.com</a> &nbsp;|&nbsp;
+<a href="https://nicemollc.com" style="color:#d4a017">NiceMoLLC.com</a>
 </footer>
 <script>
 function showDash(id){
@@ -242,7 +242,7 @@ document.getElementById("dashboards").scrollIntoView({behavior:"smooth"});
 function handleContact(e){
 e.preventDefault();
 var name=document.getElementById("cf-name").value;
-alert("Thank you, "+name+"! Your message has been received. Dr. Mo will be in touch at MOGIII@NICEMOLLC.onmicrosoft.com");
+alert("Thank you, "+name+"! Your message has been received. Dr. Mo will be in touch at mo@nicemollc.com");
 e.target.reset();
 }
 </script>
