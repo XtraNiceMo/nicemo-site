@@ -1,0 +1,683 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NiceMo LLC | Clinical Operations &amp; Margin Recovery for Post-Acute</title>
+<meta name="description" content="NiceMo LLC — operational consulting for skilled nursing operators. PDPM capture, agency spend reduction, survey defensibility, QAPI, staffing architecture, and documentation systems. Led by Mo Gregory III, DNP-BE, RN.">
+<style>
+:root{
+ --ink:#0B0B0D; --sur:#131317; --sur2:#1B1B21; --line:#2A2A33;
+ --red:#A81E28; --red-b:#C8202F; --red-dim:rgba(168,30,40,.14);
+ --bone:#EFEAE4; --mut:#93908A; --mut2:#6E6B66;
+ --serif:Georgia,'Times New Roman',serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font:16px/1.68 -apple-system,"Segoe UI",system-ui,sans-serif;color:var(--bone);background:var(--ink)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+a{color:var(--bone);text-decoration:none}
+h1,h2,h3,.dnum{font-family:var(--serif);font-weight:400}
+
+nav{position:sticky;top:0;z-index:60;background:rgba(11,11,13,.94);backdrop-filter:blur(10px);
+ border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px}
+.brand{font-family:var(--serif);font-size:20px;letter-spacing:.5px}
+.brand b{color:var(--red-b);font-weight:400}
+.nlinks{display:flex;gap:30px}
+.nlinks a{color:var(--mut);font-size:13px;letter-spacing:1.3px;text-transform:uppercase}
+.nlinks a:hover{color:var(--bone)}
+@media(max-width:820px){.nlinks{display:none}}
+
+header{padding:104px 0 92px;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+header:before{content:"";position:absolute;top:-40%;right:-10%;width:620px;height:620px;
+ background:radial-gradient(circle,rgba(168,30,40,.16),transparent 68%);pointer-events:none}
+.kicker{display:inline-block;color:var(--red-b);font-size:11.5px;letter-spacing:2.6px;
+ text-transform:uppercase;border-left:2px solid var(--red);padding-left:12px}
+h1{font-size:4rem;line-height:1.07;margin:26px 0 22px;letter-spacing:-1.2px;max-width:14ch}
+@media(max-width:820px){h1{font-size:2.6rem;max-width:none}}
+.lede{font-size:1.2rem;color:var(--mut);max-width:640px;line-height:1.72}
+.lede b{color:var(--bone);font-weight:600}
+.rule{width:56px;height:2px;background:var(--red);margin:34px 0 24px}
+.sig{font-size:14px;color:var(--mut2);letter-spacing:.4px}
+.sig b{color:var(--bone);font-weight:600}
+.cta{margin-top:38px;display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+.btn{display:inline-block;background:var(--red);color:#fff;padding:15px 32px;
+ font-size:12.5px;letter-spacing:1.8px;text-transform:uppercase;font-weight:700;border:1px solid var(--red)}
+.btn:hover{background:var(--red-b);border-color:var(--red-b)}
+.btn-o{background:transparent;color:var(--bone);border:1px solid var(--line)}
+.btn-o:hover{border-color:var(--mut);background:transparent}
+.avail{font-size:12.5px;color:var(--mut2);letter-spacing:.4px}
+.avail b{color:var(--red-b)}
+
+section{padding:96px 0;border-bottom:1px solid var(--line)}
+.eyebrow{color:var(--red-b);font-size:11.5px;letter-spacing:2.6px;text-transform:uppercase}
+h2{font-size:2.6rem;line-height:1.14;margin:16px 0 0;letter-spacing:-.7px;max-width:20ch}
+@media(max-width:820px){h2{font-size:1.9rem;max-width:none}}
+.sintro{color:var(--mut);margin-top:20px;max-width:660px;font-size:1.04rem}
+
+/* economics band */
+.econ{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1px;
+ margin-top:56px;background:var(--line);border:1px solid var(--line)}
+.leak{background:var(--ink);padding:30px 26px}
+.leak .dnum{font-size:2.4rem;color:var(--red-b);line-height:1}
+.leak h4{font-family:var(--serif);font-size:1.12rem;margin:14px 0 8px;font-weight:400}
+.leak p{color:var(--mut);font-size:.9rem}
+
+.grid{display:grid;gap:1px;margin-top:56px;background:var(--line);border:1px solid var(--line)}
+.g3{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.g2{grid-template-columns:repeat(auto-fit,minmax(380px,1fr))}
+.card{background:var(--sur);padding:34px 30px;transition:background .18s}
+.card:hover{background:var(--sur2)}
+.card .no{font-family:var(--serif);color:var(--red);font-size:.95rem;letter-spacing:2px}
+.card h3{font-size:1.34rem;margin:12px 0 12px;letter-spacing:-.2px}
+.card .out{color:var(--red-b);font-size:.83rem;letter-spacing:1.5px;text-transform:uppercase;
+ margin-bottom:14px;font-weight:700;font-family:-apple-system,system-ui,sans-serif}
+.card p{color:var(--mut);font-size:.94rem}
+.card ul{margin:14px 0 0 0;list-style:none}
+.card li{color:var(--mut2);font-size:.88rem;padding:5px 0 5px 16px;position:relative}
+.card li:before{content:"";position:absolute;left:0;top:13px;width:5px;height:1px;background:var(--red)}
+
+.two{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:56px;align-items:start}
+@media(max-width:880px){.two{grid-template-columns:1fr;gap:36px}}
+.two p{color:var(--mut);margin-bottom:16px}
+.two h3{font-size:1.5rem;margin-bottom:16px}
+.tag{display:inline-block;border:1px solid var(--line);color:var(--mut);padding:6px 13px;
+ font-size:11.5px;letter-spacing:1.2px;text-transform:uppercase;margin:5px 6px 0 0}
+
+.exp{border-left:1px solid var(--line);padding:2px 0 2px 26px;margin-bottom:34px;position:relative}
+.exp:before{content:"";position:absolute;left:-3px;top:9px;width:5px;height:5px;background:var(--red)}
+.exp h4{font-family:var(--serif);color:var(--bone);font-size:1.2rem;font-weight:400}
+.exp .meta{color:var(--mut2);font-size:.82rem;letter-spacing:1.4px;text-transform:uppercase;margin:6px 0 12px}
+.exp li{color:var(--mut);font-size:.93rem;margin:7px 0;list-style:none;padding-left:16px;position:relative}
+.exp li:before{content:"";position:absolute;left:0;top:12px;width:5px;height:1px;background:var(--red)}
+.exp p{color:var(--mut);font-size:.93rem}
+
+.dev{border:1px solid var(--line);background:var(--sur);padding:30px 30px;margin-top:44px}
+.devb{display:inline-block;border:1px solid var(--red);color:var(--red-b);font-size:10.5px;
+ letter-spacing:2px;padding:4px 11px;text-transform:uppercase;font-weight:700}
+
+.close{text-align:center;padding:110px 0}
+.close h2{margin:16px auto 0;max-width:22ch}
+.close .sintro{margin:22px auto 0}
+footer{background:#08080A;color:var(--mut2);padding:44px 0;font-size:.85rem;text-align:center}
+footer a{color:var(--mut)}
+footer a:hover{color:var(--red-b)}
+.disc{font-size:.76rem;color:#5A5854;margin-top:18px;max-width:780px;margin-left:auto;
+ margin-right:auto;line-height:1.7}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <div class="brand">NiceMo<b>&nbsp;LLC</b></div>
+  <div class="nlinks">
+    <a href="#results">Results</a>
+    <a href="#economics">Economics</a>
+    <a href="#services">Capabilities</a>
+    <a href="#experience">Principal</a>
+    <a href="#theMO">The M.O.</a>
+    <a href="#membership">Membership</a>
+    <a href="#templates">Templates</a>
+    <a href="founder.html">Thesis</a>
+    <a href="#contact">Bookings</a>
+  </div>
+</div></nav>
+
+<header><div class="wrap">
+  <span class="kicker">New bookings open 01 October 2026</span>
+  <h1>Your margin is sitting in the chart.</h1>
+  <p class="lede">
+    Skilled nursing is an operating business with clinical delivery attached — and the
+    controllable line items are almost all downstream of documentation. <b>Reimbursement you
+    earned but never captured. Agency spend that scheduling architecture would have
+    prevented. Deficiencies that cost you census.</b> NiceMo builds the operating
+    infrastructure that closes those gaps.
+  </p>
+  <div class="rule"></div>
+  <p style="font-family:var(--serif);font-size:1.3rem;color:var(--bone);max-width:600px;
+     margin-bottom:22px">Nursing is the engine that drives revenue <em>and</em> delivers the care.</p>
+  <p class="sig"><b>Mo Gregory III, DNP-BE, RN</b> &nbsp;—&nbsp; Director of Nursing ·
+     multi-state travel background · operator, not an academic</p>
+  <div class="cta">
+    <a class="btn" href="#contact">Request a booking</a>
+    <a class="btn btn-o" href="#economics">See where facilities leak</a>
+    <span class="avail">Virtual engagements <b>01 OCT 2026</b> · on-site to follow</span>
+  </div>
+</div></header>
+
+<section id="economics"><div class="wrap">
+  <span class="eyebrow">The problem</span>
+  <h2>Four places money leaves the building.</h2>
+  <p class="sintro">
+    None of these are clinical failures. They are systems failures with a dollar figure
+    attached, and every one of them is fixable with infrastructure rather than headcount.
+  </p>
+
+  <div class="econ">
+    <div class="leak">
+      <div class="dnum">01</div>
+      <h4>Uncaptured reimbursement</h4>
+      <p>PDPM pays on documented complexity. Conditions that were treated but never coded
+         are revenue the facility earned and forfeited — every claim, every cycle.</p>
+    </div>
+    <div class="leak">
+      <div class="dnum">02</div>
+      <h4>Agency dependency</h4>
+      <p>Agency is a symptom of scheduling architecture, not a staffing market. Coverage
+         models that absorb call-offs and census swings convert a premium line item back
+         into base labor.</p>
+    </div>
+    <div class="leak">
+      <div class="dnum">03</div>
+      <h4>Survey exposure</h4>
+      <p>Deficiencies carry remediation cost, civil money penalties, and a star rating that
+         determines referral volume. Defensibility is built before the surveyor arrives or
+         it is not built at all.</p>
+    </div>
+    <div class="leak">
+      <div class="dnum">04</div>
+      <h4>Readmissions</h4>
+      <p>Return-to-acute rates drive network standing and referral flow. Early-warning
+         systems and documented escalation change the number; hoping does not.</p>
+    </div>
+  </div>
+</div></section>
+
+
+<section id="results"><div class="wrap">
+  <span class="eyebrow">Results</span>
+  <h2>What the systems actually produced.</h2>
+  <p class="sintro">
+    One building, inherited at 2 stars and struggling. These are operating results from the
+    facility I currently direct — not case studies from a brochure. The building is unnamed here for
+    obvious reasons, and the numbers are directional rather than audited.
+  </p>
+
+  <div class="econ" style="margin-top:48px">
+    <div class="leak">
+      <div class="dnum">2 &rarr; 4-5&#9733;</div>
+      <h4>CMS star rating, rebuilt</h4>
+      <p>Took over a <b style="color:var(--bone)">2-star</b> building, moved it through 3, and
+         now maintain <b style="color:var(--bone)">4–5 stars</b>. Publicly verifiable on CMS
+         Care Compare. Star rating is not a vanity metric — it is what hospital case managers
+         filter by before they ever call you.</p>
+    </div>
+    <div class="leak">
+      <div class="dnum">~50%</div>
+      <h4>Return-to-acute, cut roughly in half</h4>
+      <p>Inherited a building running <b style="color:var(--bone)">220–240 returns to acute
+         per year</b>. Now averaging near half that. Readmissions drive network standing and
+         referral flow — this is the number that decides whether hospitals keep sending.</p>
+    </div>
+    <div class="leak">
+      <div class="dnum">3</div>
+      <h4>Tags on the most recent survey</h4>
+      <p>The building's best survey result in years, and publicly verifiable through CMS.
+         Survey outcome is not luck. It is whether the documentation, education, and QAPI
+         infrastructure were built before the surveyors walked in.</p>
+    </div>
+    <div class="leak">
+      <div class="dnum">$750+</div>
+      <h4>PDPM rate</h4>
+      <p>Reimbursement follows documentation. Capturing the clinical complexity that was
+         already being treated — and coding it correctly — is the difference between a rate
+         that reflects your residents and one that does not.</p>
+    </div>
+    <div class="leak">
+      <div class="dnum">2</div>
+      <h4>Surveys, total. The honest version.</h4>
+      <p>I am a DON who came to skilled nursing recently, with two surveys behind me, in a
+         building that was struggling when I arrived. That is the whole record. What it means
+         is that these results came from <b style="color:var(--bone)">building systems fast in
+         a hard building</b> — not from inheriting a good one.</p>
+    </div>
+  </div>
+
+  <div class="two" style="margin-top:52px">
+    <div>
+      <h3>Why I lead with that last number</h3>
+      <p>Most consultants sell tenure. I would rather sell the thing that is actually
+         transferable: a method that moved a struggling building's numbers quickly, developed
+         under pressure, by someone still doing the job.</p>
+      <p>If you want thirty years of war stories, that consultant exists. If you want the
+         systems that produced these results, and the person who built them last year rather
+         than last decade, that is this.</p>
+    </div>
+    <div>
+      <h3>Nursing is the revenue engine</h3>
+      <p>Administrators are often sold nursing as a cost center to be managed downward. It is
+         the opposite. Nursing documentation determines your PDPM rate. Nursing systems
+         determine your survey outcome. Nursing stability determines your agency spend and
+         your readmission rate.</p>
+      <p>Every controllable line item on the operating statement runs through the nursing
+         department. Treat it as an engine and it produces. Treat it as an expense and it
+         leaks.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="services"><div class="wrap">
+  <span class="eyebrow">Capabilities</span>
+  <h2>Infrastructure you own outright.</h2>
+  <p class="sintro">
+    Every engagement produces artifacts the facility keeps: document sets, workflows,
+    schedule architecture, survey binders. No platform to license. No dependency that stops
+    working when the engagement does.
+  </p>
+
+  <div class="grid g3">
+    <div class="card">
+      <div class="no">01</div>
+      <h3>PDPM &amp; Fiscal Strategy</h3>
+      <div class="out">Revenue capture</div>
+      <p>Align documentation to reimbursement so the facility bills what it actually
+         delivered.</p>
+      <ul>
+        <li>PDPM capture and NTA optimization</li>
+        <li>Case-mix and clinical category review</li>
+        <li>Order reconciliation workflows</li>
+        <li>Revenue-cycle documentation alignment</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="no">02</div>
+      <h3>Staffing &amp; Scheduling</h3>
+      <div class="out">Labor cost control</div>
+      <p>Coverage models that survive call-offs, census swings, and acuity spikes — and hold
+         up under a staffing review.</p>
+      <ul>
+        <li>Schedule architecture and templates</li>
+        <li>PPD tracking and acuity-based assignment</li>
+        <li>Call-off and float protocols</li>
+        <li>Agency reduction strategy</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="no">03</div>
+      <h3>Survey Readiness</h3>
+      <div class="out">Regulatory risk</div>
+      <p>Preparation before the surveyor arrives, and a plan of correction that survives
+         scrutiny after.</p>
+      <ul>
+        <li>Mock survey and gap analysis</li>
+        <li>Plan of correction development</li>
+        <li>F-tag risk mapping</li>
+        <li>Post-survey remediation systems</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="no">04</div>
+      <h3>Documentation Systems</h3>
+      <div class="out">Defensibility</div>
+      <p>The record decides whether care is defensible. Built for how nurses chart, not how a
+         binder wishes they would.</p>
+      <ul>
+        <li>Assessment and audit tools</li>
+        <li>Care plan libraries and templates</li>
+        <li>Policy and procedure development</li>
+        <li>Nursing note and handoff standards</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="no">05</div>
+      <h3>QAPI Programs</h3>
+      <div class="out">Quality &amp; star rating</div>
+      <p>Quality assurance that drives change instead of documenting decline — built on data
+         the building already generates.</p>
+      <ul>
+        <li>QAPI design and committee structure</li>
+        <li>Performance improvement projects</li>
+        <li>Root cause analysis frameworks</li>
+        <li>Quality measure improvement</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="no">06</div>
+      <h3>Education &amp; Competency</h3>
+      <div class="out">Compliance evidence &middot; fast turnaround</div>
+      <p>Training programs that are delivered, documented, and evidenced when a surveyor asks
+         for proof. This is production work I turn around quickly — a facility can have a
+         complete inservice package built to its own findings in days, not quarters.</p>
+      <ul>
+        <li>Inservice curricula and materials</li>
+        <li>Competency checklists and validation</li>
+        <li>Onboarding and preceptor structure</li>
+        <li>Annual education calendars</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="no">07</div>
+      <h3>New DON &amp; ADON Onboarding</h3>
+      <div class="out">Leadership continuity</div>
+      <p>Turnover in the nursing office is where buildings lose years. A structured
+         onboarding system so a new leader is operational in weeks, not quarters.</p>
+      <ul>
+        <li>First-90-days roadmap with weekly checkpoints</li>
+        <li>Policy walkthrough — what each one is FOR, not just where it lives</li>
+        <li>Decision frameworks: what to escalate, when, and to whom</li>
+        <li>Survey, PDPM, and QAPI explained in operator terms</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="no">08</div>
+      <h3>Negotiation &amp; Vendor Strategy</h3>
+      <div class="out">Direct cost recovery</div>
+      <p>Nursing leaders negotiate constantly — agency rates, vendor contracts, therapy
+         partnerships, hospital relationships — usually with no training and no leverage map.</p>
+      <ul>
+        <li>Agency and staffing-vendor rate negotiation</li>
+        <li>Supply, pharmacy, and therapy contract review</li>
+        <li>Hospital and network referral positioning</li>
+        <li>Building leverage: what you actually hold, and when to use it</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <span class="eyebrow">Engagement model</span>
+  <h2>Virtual-first. Deliverable-driven.</h2>
+
+  <div class="two">
+    <div>
+      <h3>Priced for buildings, not boardrooms</h3>
+      <p>Traditional consulting prices independent and mid-size operators out of help they
+         need, largely by billing travel and on-site hours. Documentation systems, schedule
+         architecture, QAPI structure, and PDPM workflow are built through iteration and
+         craft — not proximity.</p>
+      <p>Removing travel from the invoice changes who can afford operational rigor.</p>
+      <p style="margin-top:20px">
+        <span class="tag">Virtual — 01 Oct 2026</span><span class="tag">On-site to follow</span></p>
+    </div>
+    <div>
+      <h3>Built by an operator under live pressure</h3>
+      <p>These are not frameworks assembled for a slide deck. Every system offered here runs
+         a 60-bed skilled nursing facility today, refined daily against real survey exposure,
+         real agency budgets, and real reimbursement cycles.</p>
+      <p>The advantage of hiring someone still in the chair is that the advice has already
+         been stress-tested somewhere it mattered.</p>
+      <p style="margin-top:20px">
+        <span class="tag">Skilled nursing</span><span class="tag">Post-acute</span>
+        <span class="tag">Small medical clinics</span></p>
+    </div>
+  </div>
+</div></section>
+
+<section id="experience"><div class="wrap">
+  <span class="eyebrow">Principal</span>
+  <h2>Mo Gregory III, DNP-BE, RN</h2>
+  <p class="sintro">
+    A career built upward from the floor — bedside, travel contracts across multiple states,
+    charge, management, and now executive nursing leadership.
+  </p>
+
+  <div style="margin-top:52px">
+    <div class="exp">
+      <h4>Director of Nursing — Skilled Nursing Facility, 60 beds</h4>
+      <div class="meta">Las Vegas, Nevada · Current</div>
+      <ul>
+        <li>Owns clinical operations, regulatory compliance, and quality outcomes facility-wide</li>
+        <li>Leads QAPI, survey readiness, plan-of-correction execution, and root cause analysis</li>
+        <li>Directs PDPM capture strategy, case-mix review, and documentation-to-reimbursement alignment</li>
+        <li>Controls staffing models, scheduling architecture, competency and education programs</li>
+        <li>Built the documentation, audit, and clinical-review infrastructure in daily use</li>
+      </ul>
+    </div>
+
+    <div class="exp">
+      <h4>Travel Nurse — Multiple States and Care Settings</h4>
+      <div class="meta">Prior</div>
+      <ul>
+        <li>Practiced across a wide range of facility types, staffing models, and operating cultures</li>
+        <li>Repeated onboarding into unfamiliar systems made rapid operational assessment a core skill</li>
+        <li>Direct comparative exposure to what separates profitable buildings from struggling ones</li>
+      </ul>
+    </div>
+
+    <div class="exp">
+      <h4>Founder — NiceMo LLC</h4>
+      <div class="meta">Clinical operations consulting · clinical informatics</div>
+      <ul>
+        <li>Consulting practice serving post-acute operators and small medical clinics</li>
+        <li>Develops documentation systems, policies, and workflows adopted by other facilities</li>
+        <li>Builds clinical informatics tooling supporting nursing-leadership decisions</li>
+      </ul>
+    </div>
+
+    <div class="exp">
+      <h4>Education &amp; Honors</h4>
+      <div class="meta">DNP-BE · BSN, RN · BS Psychology · Sigma Theta Tau International</div>
+      <p>Doctor of Nursing Practice, built on a bachelor's-prepared nursing foundation and a
+         bachelor's in psychology — which is why staffing, behavior management, and team
+         dynamics get treated here as human-systems problems rather than policy problems.</p>
+      <ul style="margin-top:12px">
+        <li><b style="color:var(--bone)">Sigma Theta Tau International</b> — Honor Society of
+            Nursing. Invitation-only recognition of academic excellence and demonstrated
+            leadership potential in nursing.</li>
+      </ul>
+    </div>
+  </div>
+
+  <p style="margin-top:36px"><a href="founder.html" style="color:var(--red-b);font-size:12.5px;
+     letter-spacing:1.8px;text-transform:uppercase">Read the operating thesis &rarr;</a></p>
+
+  <div class="dev">
+    <span class="devb">In development</span>
+    <h3 style="font-size:1.3rem;margin:16px 0 12px">Clinical Intelligence Platform</h3>
+    <p style="color:var(--mut);font-size:.94rem;max-width:720px">
+      An active R&amp;D project exploring decision support for nursing leadership — surfacing
+      care concerns, referencing CMS regulation, and drafting defensible documentation with
+      source citations. Built and tested on synthetic data. Not deployed in any care setting,
+      not offered as a product, and no engagement depends on it.
+    </p>
+    <p style="margin-top:16px"><a href="releases/" style="color:var(--mut);font-size:12px;
+       letter-spacing:1.5px;text-transform:uppercase">Development notes &rarr;</a></p>
+  </div>
+</div></section>
+
+
+
+<section id="theMO" style="background:linear-gradient(160deg,#141014,#0B0B0D 70%)"><div class="wrap">
+  <span class="eyebrow">The M.O.</span>
+  <h2>A DON&rsquo;s <em>Modus Operandi</em>.</h2>
+  <p class="sintro">
+    The short book on how a nursing department actually gets run: what to fix first, what to
+    ignore, how to read your own numbers, and how to stop being the person everything
+    escalates to. Written for the DON who inherited a hard building and has nobody to ask.
+  </p>
+
+  <div class="two" style="margin-top:44px">
+    <div>
+      <h3>What is inside</h3>
+      <ul style="list-style:none;margin-top:14px">
+        <li style="color:var(--mut);padding:7px 0 7px 18px;position:relative;font-size:.95rem">
+          <span style="position:absolute;left:0;color:var(--red)">&mdash;</span>
+          The first 90 days: triage order for a struggling building</li>
+        <li style="color:var(--mut);padding:7px 0 7px 18px;position:relative;font-size:.95rem">
+          <span style="position:absolute;left:0;color:var(--red)">&mdash;</span>
+          Reading your own data: which numbers predict a bad survey</li>
+        <li style="color:var(--mut);padding:7px 0 7px 18px;position:relative;font-size:.95rem">
+          <span style="position:absolute;left:0;color:var(--red)">&mdash;</span>
+          Documentation as defense, and as revenue</li>
+        <li style="color:var(--mut);padding:7px 0 7px 18px;position:relative;font-size:.95rem">
+          <span style="position:absolute;left:0;color:var(--red)">&mdash;</span>
+          Negotiation: agency, vendors, and your own administrator</li>
+        <li style="color:var(--mut);padding:7px 0 7px 18px;position:relative;font-size:.95rem">
+          <span style="position:absolute;left:0;color:var(--red)">&mdash;</span>
+          Building systems that survive your day off</li>
+      </ul>
+    </div>
+    <div style="border:1px solid var(--line);background:var(--sur);padding:30px 28px">
+      <h3 style="margin-bottom:10px">Get the first chapters</h3>
+      <p style="color:var(--mut);font-size:.94rem;margin-bottom:18px">
+        Join the list and the opening chapters arrive on release, along with the operating
+        notes I send out — short, specific, no filler.</p>
+      <form action="FORM_ENDPOINT" method="POST" style="display:flex;gap:10px;flex-wrap:wrap">
+        <input type="email" name="email" required placeholder="you@facility.com"
+          style="flex:1;min-width:210px;background:var(--ink);border:1px solid var(--line);
+                 color:var(--bone);padding:13px 14px;font-size:14px">
+        <button class="btn" type="submit" style="cursor:pointer">Send it</button>
+      </form>
+      <p style="margin-top:14px;font-size:.78rem;color:var(--mut2)">
+        No sharing, no selling, unsubscribe anytime.</p>
+    </div>
+  </div>
+</div></section>
+
+
+<section id="membership"><div class="wrap">
+  <span class="eyebrow">Membership</span>
+  <h2>The question you cannot Google at 11pm.</h2>
+  <p class="sintro">
+    Most DON questions are not complicated — they are just unanswerable at the moment you have
+    them. Is this reportable? Does this need an incident report? What does this F-tag actually
+    require? A membership built to answer exactly those.
+  </p>
+
+  <div class="grid g3" style="margin-top:48px">
+    <div class="card">
+      <div class="no">&#9679;</div>
+      <h3>Instant answers</h3>
+      <div class="out">Always available</div>
+      <p>An assistant trained on regulatory, documentation, and operational guidance — for the
+         everyday questions that stall a shift. Answers with the reasoning, not just a verdict,
+         so you learn the pattern instead of asking again.</p>
+    </div>
+    <div class="card">
+      <div class="no">&#9679;</div>
+      <h3>Template library</h3>
+      <div class="out">Included</div>
+      <p>Member access to the document sets — audit tools, policies, education packs, QAPI
+         toolkit — with updates as regulation shifts.</p>
+    </div>
+    <div class="card">
+      <div class="no">&#9679;</div>
+      <h3>Direct escalation</h3>
+      <div class="out">Human, when it matters</div>
+      <p>When the question is genuinely hard — a survey response, a difficult negotiation, a
+         situation with real exposure — it reaches me, not a queue.</p>
+    </div>
+  </div>
+
+  <div style="border:1px solid var(--line);background:var(--sur);padding:26px 28px;margin-top:34px">
+    <p style="color:var(--mut);font-size:.9rem;margin:0">
+      <b style="color:var(--bone)">What this is not.</b> The assistant provides operational and
+      educational guidance for nursing leadership. It does not give medical advice, direct care
+      for any individual resident, or legal counsel, and it does not replace your medical
+      director, your compliance officer, or your attorney. Members are responsible for
+      decisions made in their own facilities.
+    </p>
+  </div>
+
+  <div style="margin-top:38px;text-align:center">
+    <a class="btn" href="mailto:mo@nicemollc.com?subject=Membership%20waitlist%20—%20NiceMo%20LLC">
+      Join the waitlist</a>
+    <p style="margin-top:16px;font-size:.85rem;color:var(--mut2)">
+      Opening alongside bookings &mdash; 01 October 2026.</p>
+  </div>
+</div></section>
+
+<section id="templates"><div class="wrap">
+  <span class="eyebrow">Templates &amp; forms</span>
+  <h2>Buy the document set without the engagement.</h2>
+  <p class="sintro">
+    Not every building needs a consultant. Some need the form that should have existed
+    already. Editable, survey-minded document sets — built for real facilities, sold outright,
+    yours to modify. No subscription, no license, no platform.
+  </p>
+
+  <div class="grid g3">
+    <div class="card">
+      <div class="no">A</div>
+      <h3>Audit &amp; Assessment Tools</h3>
+      <div class="out">Survey defensibility</div>
+      <p>The self-audit instruments that surface problems while they are still small —
+         formatted so the evidence trail exists when someone asks for it.</p>
+    </div>
+    <div class="card">
+      <div class="no">B</div>
+      <h3>Policy &amp; Procedure Sets</h3>
+      <div class="out">Regulatory baseline</div>
+      <p>Written to be followed rather than filed. Each one paired with the reasoning, so a
+         new leader understands what it is protecting against.</p>
+    </div>
+    <div class="card">
+      <div class="no">C</div>
+      <h3>Education &amp; Competency Packs</h3>
+      <div class="out">Compliance evidence</div>
+      <p>Inservice materials, competency checklists, and validation forms — delivered as a
+         program, not a stack of handouts. Custom packages built to your survey findings on
+         short turnaround.</p>
+    </div>
+    <div class="card">
+      <div class="no">D</div>
+      <h3>Scheduling &amp; Staffing Templates</h3>
+      <div class="out">Labor cost control</div>
+      <p>Coverage models, PPD tracking, call-off and float protocols. The architecture, ready
+         to adapt to your census and acuity.</p>
+    </div>
+    <div class="card">
+      <div class="no">E</div>
+      <h3>QAPI Toolkit</h3>
+      <div class="out">Quality &amp; star rating</div>
+      <p>Committee structure, PIP templates, root cause frameworks, and the tracking that
+         makes a quality program real instead of ceremonial.</p>
+    </div>
+    <div class="card">
+      <div class="no">F</div>
+      <h3>New DON / ADON Starter Kit</h3>
+      <div class="out">Leadership continuity</div>
+      <p>The first-90-days roadmap, policy explanation set, and decision frameworks — the
+         onboarding a new nursing leader almost never gets.</p>
+    </div>
+  </div>
+
+  <div style="margin-top:44px;text-align:center">
+    <a class="btn" href="ETSY_SHOP_URL" id="etsy-link">Browse the shop</a>
+    <p style="margin-top:16px;font-size:.85rem;color:var(--mut2)">
+      Storefront opening alongside bookings — 01 October 2026.
+      <a href="mailto:mo@nicemollc.com?subject=Template%20request%20—%20NiceMo%20LLC"
+         style="color:var(--red-b)">Request a specific document set &rarr;</a>
+    </p>
+  </div>
+</div></section>
+
+<section class="close" id="contact"><div class="wrap">
+  <span class="eyebrow">New bookings</span>
+  <h2>New bookings open 01 October 2026.</h2>
+  <p class="sintro">
+    Scope a project, secure early schedule, or ask whether the problem you are carrying is
+    one worth outsourcing. Direct line to the principal — there is no account team.
+  </p>
+  <div style="margin-top:38px">
+    <a class="btn" href="mailto:mo@nicemollc.com?subject=Engagement%20inquiry%20—%20NiceMo%20LLC">
+      mo@nicemollc.com</a>
+  </div>
+  <p style="margin-top:30px;font-size:.85rem;color:var(--mut2);letter-spacing:.4px">
+    PDPM &amp; fiscal strategy · staffing &amp; scheduling · survey readiness ·
+    documentation systems · QAPI · education &amp; competency
+  </p>
+</div></section>
+
+<footer><div class="wrap">
+  <div style="font-family:var(--serif);font-size:1.05rem;color:var(--bone)">NiceMo LLC</div>
+  <div style="margin-top:10px"><a href="mailto:mo@nicemollc.com">mo@nicemollc.com</a>
+    &nbsp;·&nbsp; <a href="https://nicemollc.com">NiceMoLLC.com</a></div>
+  <p class="disc">
+    NiceMo LLC provides operational and administrative consulting to healthcare organizations.
+    Services described are advisory and do not constitute medical advice, clinical direction
+    for any individual patient, or a guarantee of regulatory or financial outcome. No
+    protected health information is referenced on this site.
+  </p>
+  <div style="margin-top:14px;font-size:.78rem">&copy; 2026 NiceMo LLC</div>
+</div></footer>
+
+</body>
+</html>
